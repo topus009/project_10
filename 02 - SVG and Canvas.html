@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+</head>
+
+<style>
+    svg {
+        border: 1px solid #dddddd;
+    }
+    #painting {
+        margin-top:20px;
+    }
+</style>
+
+<body>
+
+  <svg width="310" height="290">
+      <ellipse rx="24%" ry="8%" cx="49%" cy="92%" fill="lightgrey"/>
+      <circle cx="49%" cy="51%" r="120" fill="gold" />
+      <circle cx="35%" cy="41%" r="52" fill="white" />
+      <circle cx="55%" cy="41%" r="52" fill="white" />
+      <circle cx="33%" cy="41.5%" r="10" fill="black" />
+      <circle cx="55%" cy="41%" r="10" fill="black" />
+      <ellipse rx="10" ry="7%" cx="44%" cy="73%" fill="crimson"/>
+  </svg>
+
+  <svg height="250" width="330">
+      <rect class="leg" width="15" height="30" x="260" y="200" rx="5" fill="black"/>
+      <rect class="leg" width="10" height="30" x="50" y="200" rx="5" fill="black"/>
+      <rect class="case" width="300" height="200" x="10" y="10" rx="50" ry="50" fill="dimgray"/>
+      <rect class="screen" width="200" height="160" x="30" y="30" rx="30" fill="deepskyblue"/>
+      <rect class="panel" width="50" height="100" x="245" y="60" rx="10" ry="10" fill="black"/>
+      <rect class="button" width="30" height="15" x="255" y="70" rx="5" ry="5" fill="red"/>
+      <rect class="button" width="30" height="15" x="255" y="100" rx="5" ry="5" fill="gold"/>
+      <rect class="button" width="30" height="15" x="255" y="130" rx="5" ry="5" fill="lime"/>
+  </svg>
+
+  <svg width="540" height="290">
+      <rect x="0" y="0" width="600" height="200" fill="skyblue"></rect>
+      <rect x="0" y="190" width="600" height="200" fill="yellow"></rect>
+      <polygon points="240 70 390 240 90 240" fill="goldenrod"/>
+      <polygon points="350 150 450 260 250 260" fill="darkgoldenrod"/>
+  </svg>
+
+  <svg width="300" height="290">
+
+      <rect x="0" y="0" width="300" height="180" fill="skyblue" />
+      <rect x="0" y="180" width="300" height="180" fill="yellowgreen" />
+      <rect x="80" y="210" width="10" ry="5" height="50" />
+      <rect x="210" y="210" width="10" ry="5" height="50" />
+      <circle cx="50%" cy="160" r="100" stroke="red" fill="crimson" />
+      <circle cx="50%" cy="160" r="80" stroke="red" fill="white" />
+      <circle cx="50%" cy="160" r="60" stroke="red" fill="crimson" />
+      <circle cx="50%" cy="160" r="40" stroke="red" fill="white" />
+      <circle cx="50%" cy="160" r="20" stroke="red" fill="crimson" />
+  </svg>
+
+	<canvas id="painting" width="500" height="500"></canvas>
+
+</body>
+
+<script>
+
+// Р О М Б ----------------------
+var canvas = document.getElementById("painting");
+    romb = canvas.getContext("2d");
+
+romb.fillStyle = "rgba(255, 0, 0, 1.0)";
+
+romb.beginPath();
+romb.moveTo(20, 0);
+romb.lineTo(40, 20);
+romb.lineTo(20, 40);
+romb.lineTo(0, 20);
+
+romb.fill();
+
+// Т Р А П Е Ц И Я ----------------
+var trap = canvas.getContext("2d");
+
+romb.strokeStyle = "rgba(0, 0, 0, 1.0)";
+
+trap.beginPath();
+trap.moveTo(60.5,0.5);
+trap.lineTo(80.5,0.5);
+trap.lineTo(100.5,40.5);
+trap.lineTo(40.5,40.5);
+trap.closePath();
+romb.stroke();
+
+// З И Г З А Г ------------------
+var zig = canvas.getContext("2d");
+
+zig.strokeStyle = "rgba(0, 0, 0, 1.0)";
+
+zig.beginPath();
+zig.moveTo(110.5,0.5);
+zig.lineTo(160.5,4.5);
+zig.lineTo(110.5,8.5);
+zig.lineTo(160.5,12.5);
+zig.lineTo(110.5,16.5);
+zig.lineTo(160.5,20.5);
+zig.lineTo(110.5,24.5);
+zig.lineTo(160.5,28.5);
+zig.lineTo(110.5,32.5);
+zig.lineTo(160.5,36.5);
+zig.lineTo(110.5,40.5);
+zig.stroke();
+zig.closePath();
+
+// С П И Р А Л Ь ------------------
+var spiral = canvas.getContext("2d");
+
+spiral.moveTo(150,150);
+spiral.beginPath();
+
+spiral.strokeStyle = "rgba(0, 0, 0, 1.0)";
+spiral.arc(150, 150, 50, Math.PI/2, Math.PI, false);
+spiral.arc(140, 150 , 40, Math.PI, -0 , false);
+spiral.arc(145, 150 , 35, -0, Math.PI , false);
+spiral.arc(140, 150 , 30, Math.PI, -0 , false);
+spiral.arc(145, 150 , 25, -0, Math.PI , false);
+spiral.arc(140, 150 , 20, Math.PI, -0 , false);
+spiral.arc(145, 150 , 15, -0, Math.PI , false);
+spiral.arc(140, 150 , 10, Math.PI, -0 , false);
+spiral.arc(145, 150 , 5, -0, Math.PI+0.5 , false);
+spiral.stroke();
+
+// С О Л Н Е Ж И Н К А ------------------
+var star = canvas.getContext("2d");
+
+star.fillStyle = "rgba(255, 193, 0, 1)";
+
+star.beginPath();
+star.moveTo(440,280);
+
+star.quadraticCurveTo(320,280 ,320 ,400 );
+star.quadraticCurveTo(320,280 ,200 ,280 );
+star.quadraticCurveTo(320,280 ,320 ,160 );
+star.quadraticCurveTo(320,280 ,440 ,280 );
+star.closePath();
+star.fill();
+
+var centerX = 440,
+    centerY = 180,
+    size = 50,
+    n = 50,
+    s = Math.PI * 2 / n;
+spiral.beginPath();
+star.moveTo(centerX - Math.sin(0) * size, centerY - Math.cos(0) * size);
+
+for(var i = 1; i <= n; i++) star.quadraticCurveTo(centerX, centerY, centerX - Math.sin(s * i) * size, centerY - Math.cos(s * i) * size);
+spiral.closePath();
+star.fill();
+
+</script>
+
+</html>

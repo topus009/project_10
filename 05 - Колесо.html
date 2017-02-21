@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<style>
+		body {
+			margin: 0;
+		}
+
+		.wheel {
+			background: url(img/wheel.svg) 0 0 no-repeat;
+			width: 235px;
+			height: 235px;
+			position: absolute;
+			left: 35px;
+			top: 35px;
+		}
+
+		@keyframes rotate {
+			0% {
+				transform: rotate(0deg);
+			}
+			100% {
+				transform: rotate(360deg);
+			}
+		}
+
+		.wheel:hover {
+			animation-name: rotate;
+			animation-duration: 2s;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="wheel"></div>
+</body>
+
+</html>

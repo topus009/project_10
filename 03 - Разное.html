@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+<style>
+
+body {
+  background-color: lightgrey;
+}
+
+* {
+  font-family: sans-serif;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+#convert, #res, #otvet {
+  display: block;
+  margin-top:15px;
+}
+
+hr {
+  border:none;
+  background:red;
+  height:4px;
+  margin-top: 15px;
+}
+
+span {
+  font-size: 20px;
+  color: red;
+}
+
+</style>
+
+<script>
+    $(document).ready(function() {
+
+// ----------- ЗАМЕНА КАВЫЧЕК
+        var reg = /\B'|'\B/igm
+        $('#replace').on('click', function() {
+            var el = $('#text');
+            el.html(el.html().replace(reg, '\"'));
+        });
+
+// ----------- КОНВЕРТЕР ВАЛЮТ
+    $("#convert").on("click", function(){
+      var s = $('#s').val();
+          e = $('#e').val();
+          rub = $('#rub').val();
+          x = (rub / s).toFixed(2);
+          y = (rub / e).toFixed(2);
+      $("#res-dollar").text("У вас " + x + " ДОЛЛАРОВ");
+      $("#res-euro").text("У вас " + y + " ЕВРО");
+    });
+
+// ----------- ЗАГАДКА
+
+$("#reshenie").on("click", function(){
+  var v = $('#vvod').val();
+      o = $("#otvet");
+  if (v == "Зебра" || v == "ЗЕБРА" || v == "зебра") {
+    o.text("ПРАВИЛЬНО");
+  } else {
+    o.text("НЕТ. ПОДУМАЙТЕ ЕЩЕ.");
+  }
+});
+
+});
+</script>
+
+<body>
+
+<!-- ЗАМЕНА КАВЫЧЕК -->
+      <span>Замене текста</span>
+
+      <p id = "text"> Amelie: 'What kind of music do you like to listen to?'<br><br>
+          Brad: 'All kinds, but mostly Rock and Indie-pop. Why?'<br><br>
+          Amelie: 'Oh, I'm just collecting the information for my school essay. I'm trying to prove that modern music is not
+          stupid, and some lyrics have a strong sense. Oldsters suppose that there are no great musicians such as The Beatles or The Queen anymore. The Scorpions and The Rolling Stones were great but they are coeval with our grandparents. Do we
+          really have no cool musicians?'<br><br>
+          Brad: 'I don't think so. In my opinion, we have a plenty of pop-singers on the stage with lack of talent. But we also have some talented people, who could give the food for thought through their
+          songs. These songs make us crazy, loving or sober-minded. People got used to associate a song with the first kiss or parting, some special and significant things. As for me, I like 30 seconds to Mars, Hurts and Breaking Benjamin. Usually,
+          their songs make my day. It seems to me, that some of these songs could change us.' </p>
+
+      <button id = "replace">Заменить</button>
+
+      <hr />
+
+<!-- КОНВЕРТЕР ВАЛЮТ -->
+      <span>Конвертер валют</span>
+
+      <p>Введите курс ДОЛЛАРА</p>
+      <input id = "s" type='text' value=''/>
+      <p>Введите курс ЕВРО</p>
+      <input id = "e" type='text' value=''/>
+      <p>Сколько у вас РУБЛЕЙ</p>
+      <input id = "rub" type='text' value=''/>
+      <button id = "convert">Перевести</button>
+      <div id = "res">
+  <div id = "res-dollar"></div>
+  <div id = "res-euro"></div>
+      </div>
+
+      <hr />
+<!-- ЗАГАДКА -->
+<span>Загадка</span><br>
+
+<p>По какому животному ходят люди и ездят машины?</p>
+
+<input id = "vvod" type='text' value=''/>
+<button id = "reshenie">Перевести</button>
+<div id = "otvet"></div>
+
+</body>
+</html>
